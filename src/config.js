@@ -1,3 +1,3 @@
 module.exports = {
-    path: "http://54.176.146.70:8888"
+    path: "http://3.101.116.12:8888"
 }
