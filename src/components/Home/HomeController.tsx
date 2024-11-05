@@ -5,6 +5,7 @@ import { RecipeType } from '../Types/recipeType';
 import { Meal } from '../Types/mealType';
 import { CommentType } from '../Types/commentType';
 const URL = `${config.path}`;
+const RECIPES_URL = `${config.getRecipes}`;
 
 function HomeController() {
   const [recipes, setRecipes] = useState<RecipeType[] | undefined>(undefined);
@@ -139,11 +140,11 @@ function HomeController() {
 
   useEffect(() => {
     async function getRecipes() {
-      const response = await fetch(`${URL}/recipes`);
+      const response = await fetch(`${RECIPES_URL}`);
 
       if (response.ok) {
         const data = await response.json();
-        await getRandRecipe(data);
+        await getRandRecipe(JSON.parse(data.body));
       } else {
         console.error("Error getting recipes from DB");
       }
