@@ -4,7 +4,7 @@ import NavBarSearchView from './NavBarSearchView';
 import { RecipeType } from '../Types/recipeType';
 
 const config = require("../../config");
-const URL = `${config.path}`;
+const URL = `${config.getRecipes}`;
 
 function NavBarSearchController() {
     const navigate = useNavigate();
